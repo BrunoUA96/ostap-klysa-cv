@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 import "./globals.css";
 
+import { Header } from "@/components/header/Header";
+
 const fira_code = Fira_Code({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,26 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={fira_code.className + " overflow-hidden"}>
-        <main className="max-w-7xl m-auto grid grid-cols-3 gap-4">
-          <div className="h-screen flex flex-col pt-16">
-            <div>
-              <h2 className="text-6xl font-medium">
-                Hi, <br /> I`m Ostap
-              </h2>
-              <h4 className="text-xl mt-9">
-                Front-End Developer from Porto :)
-              </h4>
-              <span className="text-lg mt-9 inline-block">
-                Welcome to my personal site You can check my Portfolio with the
-                link below
-              </span>
-            </div>
-
-            <div className="mt-auto">dots HErE</div>
-          </div>
-          <div className="col-span-2">{children}</div>
-        </main>
+      <body
+        className={
+          fira_code.className +
+          " overflow-hidden m-auto min-h-screen max-w-screen-xl grid grid-cols-3 gap-4 px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0"
+        }>
+        <Header />
+        <main className="col-span-2 pt-16 px-16">{children}</main>
       </body>
     </html>
   );
