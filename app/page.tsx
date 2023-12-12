@@ -1,14 +1,17 @@
+"use client";
 import { MouseBg } from "@/components/MouseBg";
-import Image from "next/image";
+import { About } from "@/components/home/About";
+import { Experience } from "@/components/home/Experience";
+import { TestCard } from "@/components/home/TestCard";
+import { LayoutGroup, motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div>
+    <div className="">
       <MouseBg />
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus aut
-      laborum rerum, facilis porro itaque maxime laboriosam quae vero,
-      laudantium necessitatibus delectus vitae natus, corrupti architecto. Ex
-      nemo facilis voluptate.
+      <h4 className="tracking-wide">{"</>"}</h4>
+      <About />
+      <Experience />
     </div>
   );
 }
