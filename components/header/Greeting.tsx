@@ -2,7 +2,7 @@ import React from "react";
 
 export const Greeting = () => (
   <div>
-    <h2 className="text-6xl font-medium">
+    <h2 className="text-6xl font-medium text-slate-800">
       Hi, <br /> I`m Ostap
     </h2>
     <h4 className="text-xl mt-9">Front-End Developer from Porto :)</h4>
