@@ -1,9 +1,8 @@
-"use client";
+import { DividerContent } from "@/components/DividerContent";
 import { MouseBg } from "@/components/MouseBg";
 import { About } from "@/components/home/About";
 import { Experience } from "@/components/home/Experience";
-import { TestCard } from "@/components/home/TestCard";
-import { LayoutGroup, motion } from "framer-motion";
+import { PortfolioList } from "@/components/portfolio/PortfolioList";
 
 export default function Home() {
   return (
@@ -11,7 +10,14 @@ export default function Home() {
       <MouseBg />
       <h4 className="tracking-wide">{"</>"}</h4>
       <About />
+
+      <DividerContent />
+
       <Experience />
+
+      <DividerContent />
+
+      <PortfolioList />
     </div>
   );
 }
