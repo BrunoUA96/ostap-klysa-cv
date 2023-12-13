@@ -2,9 +2,9 @@ import React from "react";
 
 const ExperienceCard = () => {
   return (
-    <li className="mb-12">
+    <li className="mb-12 last:mb-0">
       <div className="group lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-        <div className="rounded-md transition-all motion-reduce:transition-none lg:group-hover:bg-slate-300/50 lg:group-hover:p-4 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg cursor-pointer">
+        <div className="rounded-md transition-all motion-reduce:transition-none lg:group-hover:bg-slate-300/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg lg:group-hover:-m-4 lg:group-hover:p-4 cursor-pointer">
           {/* Timeline Section */}
           <div className="flex gap-3 col-span-2 text-slate-800 text-xs">
             <span>2018</span>
