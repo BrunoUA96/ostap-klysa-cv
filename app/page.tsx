@@ -1,8 +1,9 @@
-import { DividerContent } from "@/components/DividerContent";
-import { MouseBg } from "@/components/MouseBg";
-import { About } from "@/components/home/About";
-import { Experience } from "@/components/home/Experience";
-import { PortfolioList } from "@/components/portfolio/PortfolioList";
+import { DividerContent } from "@/app/components/DividerContent";
+import { MouseBg } from "@/app/components/MouseBg";
+import { About } from "@/app/components/home/About";
+
+import { PortfolioList } from "@/app/components/portfolio/PortfolioList";
+import { ExperienceList } from "@/app/components/Experience/ExperienceList";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
 
       <DividerContent />
 
-      <Experience />
+      <ExperienceList />
 
       <DividerContent />
 

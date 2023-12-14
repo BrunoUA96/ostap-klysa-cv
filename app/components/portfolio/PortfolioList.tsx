@@ -1,8 +1,9 @@
 import React from "react";
-import { PortfolioCard } from "./PortfolioCard";
 import { GraphQLClient } from "graphql-request";
-
 import { gql } from "graphql-request";
+
+import { ProjectResponse } from "@/app/types/project";
+import { PortfolioCard } from "./PortfolioCard";
 
 const QUERY = gql`
   {
@@ -20,30 +21,12 @@ const QUERY = gql`
   }
 `;
 
-interface Data {
-  projects: Project[];
-}
-
-export interface Project {
-  id: string;
-  title: string;
-  subtitle?: any;
-  content: {
-    text: string;
-  };
-  images: Image[];
-}
-
-interface Image {
-  url: string;
-}
-
 async function getProjects() {
   const hygraph = new GraphQLClient(
     "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clpy9x1jckoj501t0boi1b44e/master"
   );
 
-  const data = await hygraph.request<Data>(QUERY);
+  const data = await hygraph.request<ProjectResponse>(QUERY);
 
   return { data };
 }
