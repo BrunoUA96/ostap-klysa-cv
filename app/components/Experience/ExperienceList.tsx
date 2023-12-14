@@ -1,7 +1,8 @@
 import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
-import { ExperienceResponse } from "@/app/types/experience";
+import { ExperienceResponse } from "@/types/experience";
+
 import { ExperienceCard } from "./ExperienceCard";
 
 const QUERY = gql`

@@ -1,5 +1,6 @@
 import React from "react";
-import { Experience } from "@/app/types/experience";
+
+import { Experience } from "@/types/experience";
 
 export const ExperienceCard = (props: Experience) => {
   const [startedYear, startedMonth] = props.startedDate.split("-");

@@ -2,7 +2,8 @@ import React from "react";
 import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
-import { ProjectResponse } from "@/app/types/project";
+import { ProjectResponse } from "@/types/project";
+
 import { PortfolioCard } from "./PortfolioCard";
 
 const QUERY = gql`

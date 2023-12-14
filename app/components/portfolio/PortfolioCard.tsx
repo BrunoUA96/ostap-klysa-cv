@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { Project } from "@/app/types/project";
+import { Project } from "@/types/project";
 
 export const PortfolioCard = ({ ...project }: Project) => {
   return (
