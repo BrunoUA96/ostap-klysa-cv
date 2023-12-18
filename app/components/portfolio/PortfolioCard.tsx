@@ -15,7 +15,7 @@ export const PortfolioCard = ({ ...project }: Project) => {
           <motion.div className="flex gap-4 transition-all motion-reduce:transition-none bg-transparent cursor-pointer">
             <motion.div className=" flex-shrink-0">
               <MotionImage
-                src={project.images[0]?.url}
+                src={project.previewImage.url}
                 alt="Company"
                 width={200}
                 height={100}
@@ -35,9 +35,18 @@ export const PortfolioCard = ({ ...project }: Project) => {
               </motion.p>
             </motion.div>
           </motion.div>
-          <div className="absolute top-2 right-0 bg-white text-sm transition-all p-2 rounded-lg hover:scale-125 cursor-pointer">
+          <motion.div
+            whileHover={{
+              scale: 1.2,
+            }}
+            whileTap={{ scale: 1.2 }}
+            animate={{
+              scale: 0.9,
+            }}
+            layoutId={`${project.id}-toggle`}
+            className="absolute -top-0.5 right-0 bg-white text-xs p-2 rounded-lg cursor-pointer">
             <BsArrowsFullscreen />
-          </div>
+          </motion.div>
         </motion.div>
       </motion.li>
     </>

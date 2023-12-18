@@ -23,7 +23,10 @@ const QUERY = gql`
     projects {
       id
       title
-      subtitle
+      url
+      previewImage {
+        url
+      }
       images {
         url
       }
@@ -58,15 +61,18 @@ const Modal = ({
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 p-9 flex">
       <motion.div
-        className="rounded-2xl w-full shrink-0 max-h-full z-10 bg-slate-300/50 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] drop-shadow-lg backdrop-blur-md overflow-hidden p-20"
+        className="rounded-2xl w-full shrink-0 max-h-full z-10 bg-slate-300/50 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] drop-shadow-lg backdrop-blur-md overflow-hidden overflow-y-auto p-20"
         layoutId={`${cardInfo?.id}-card`}>
         <AnimatePresence>
           {cardInfo?.images.length && (
             <MotionSwiper
               slidesPerView={1}
-              height={400}
               modules={[Navigation, A11y]}
-              navigation>
+              navigation
+              autoHeight
+              observer
+              resizeObserver
+              observeParents>
               {cardInfo?.images.map((image, index) => {
                 return (
                   <SwiperSlide key={index}>
@@ -96,7 +102,17 @@ const Modal = ({
         </motion.p>
 
         <motion.div
-          className="absolute top-2 right-2 flex items-center gap-3 bg-white text-md transition-all p-2 rounded-lg scale-90 hover:scale-100 cursor-pointer"
+          layoutId={`${cardInfo?.id}-toggle`}
+          whileHover={{
+            scale: 1,
+          }}
+          whileTap={{ scale: 1 }}
+          initial={{
+            scale: 0.8,
+            top: "0.5rem",
+            right: "0.5rem",
+          }}
+          className="absolute flex items-center gap-3 bg-white text-xs p-2 rounded-lg cursor-pointer"
           onClick={() => setCardInfo(null)}>
           <span className="text-sm">Esc</span> / <BsFullscreenExit />
         </motion.div>

@@ -5,10 +5,11 @@ export interface ProjectResponse {
 export interface Project {
   id: string;
   title: string;
-  subtitle?: any;
+  url: string;
   content: {
     text: string;
   };
+  previewImage: { url: string };
   images: Image[];
 }
 
