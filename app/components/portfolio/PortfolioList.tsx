@@ -94,12 +94,12 @@ export const PortfolioList = () => {
   return (
     <>
       <LayoutGroup>
-        <ol className="group/list">
+        <ol className="group/list" onMouseLeave={() => setHoverCard("")}>
           {data.map((project) => (
             <motion.div
               className="relative"
               onMouseEnter={() => {
-                setHoverCard(project.id), console.log("teste");
+                setHoverCard(project.id);
               }}
               onClick={() => onCardHandler(project)}
               key={project.id}>
