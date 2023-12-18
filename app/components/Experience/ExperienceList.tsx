@@ -36,7 +36,7 @@ export const ExperienceList = async () => {
   return (
     <ol className="group/list">
       {experienceList.map((exp) => (
-        <div key={exp.id}>
+        <div key={exp.id} className="mb-12 last:mb-0">
           <ExperienceCard {...exp} />
         </div>
       ))}
