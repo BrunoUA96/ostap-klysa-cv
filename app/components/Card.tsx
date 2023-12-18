@@ -11,8 +11,8 @@ export const Card = ({
 }) => {
   return (
     <motion.li layoutId={`${id}-card`} className="mb-12">
-      <motion.div className="group lg:hover:!opacity-100 lg:group-hover/list:opacity-50 relative">
-        <motion.div className="flex gap-4 transition-all motion-reduce:transition-none bg-transparent cursor-pointer">
+      <div className="group lg:hover:!opacity-100 lg:group-hover/list:opacity-50 relative">
+        <div className="flex gap-4 transition-all motion-reduce:transition-none bg-transparent cursor-pointer">
           {/* Choldren */}
           {children}
 
@@ -28,8 +28,8 @@ export const Card = ({
             className="absolute -top-0.5 right-0 bg-white text-xs p-2 rounded-lg cursor-pointer">
             <BsArrowsFullscreen />
           </motion.div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </motion.li>
   );
 };
