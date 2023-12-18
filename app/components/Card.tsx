@@ -10,7 +10,7 @@ export const Card = ({
   children: React.ReactNode;
 }) => {
   return (
-    <motion.li layoutId={`${id}-card`} className="mb-12">
+    <motion.li layoutId={`${id}-card`}>
       <div className="group lg:hover:!opacity-100 lg:group-hover/list:opacity-50 relative">
         <div className="flex gap-4 transition-all motion-reduce:transition-none bg-transparent cursor-pointer">
           {/* Choldren */}
