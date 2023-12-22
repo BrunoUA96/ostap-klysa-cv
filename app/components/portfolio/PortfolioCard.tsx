@@ -1,26 +1,21 @@
-import React from "react";
-import Image from "next/image";
-
 import { Project } from "@/types/project";
 import { motion } from "framer-motion";
 
-import { BsArrowsFullscreen } from "react-icons/bs";
 import { Card } from "../Card";
 
 export const PortfolioCard = ({ ...project }: Project) => {
-  const MotionImage = motion(Image);
   return (
     <Card id={project.id}>
-      <motion.div className=" flex-shrink-0">
-        <MotionImage
+      <div className="flex-shrink-0">
+        <motion.img
           src={project.previewImage.url}
           alt="Company"
           width={200}
           height={100}
           layoutId={`${project.id}-image`}
         />
-      </motion.div>
-      <motion.div>
+      </div>
+      <div>
         <motion.h4
           layoutId={`${project.id}-title`}
           className="text-sm font-semibold mb-3">
@@ -31,7 +26,7 @@ export const PortfolioCard = ({ ...project }: Project) => {
           className="mb-3 text-sm line-clamp-3">
           {project.content.text}
         </motion.p>
-      </motion.div>
+      </div>
     </Card>
   );
 };
