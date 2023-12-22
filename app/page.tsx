@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="">
       <MouseBg />
-      <h4 className="tracking-wide">{"</>"}</h4>
+
       <About />
 
       <DividerContent />

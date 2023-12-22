@@ -5,7 +5,7 @@ import { Socials } from "./Socials";
 
 export const Header = () => {
   return (
-    <header className="h-screen flex flex-col pt-16 lg:sticky lg:top-0">
+    <header className="max-h-screen flex flex-col pt-16 lg:sticky lg:top-0">
       <Greeting />
 
       <Navs />

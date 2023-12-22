@@ -16,6 +16,13 @@
   }
 }
 
+/* Fix iphone 100vh screen */
+/* @supports (-webkit-touch-callout: none) {
+  .h-screen {
+    height: -webkit-fill-available;
+  }
+} */
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

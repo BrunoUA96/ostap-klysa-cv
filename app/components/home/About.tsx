@@ -1,7 +1,7 @@
 import React from "react";
 
 export const About = () => (
-  <h3 className="text-md mb-8 font-light">
+  <h3 className="text-base mb-8 font-light">
     Passionate developer offering 5+ years of experience,
     <span className="bg-white text-black px-2">strong</span> sense of web design
     and commitment to the user experience, including the accessibility.{" "}
