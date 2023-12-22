@@ -93,7 +93,7 @@ export const PortfolioList = () => {
       <ol className="group/list" onMouseLeave={() => setHoverCard("")}>
         {data.map((project) => (
           <motion.div
-            className="relative mb-12 last:mb-0"
+            className="relative mb-12"
             onMouseEnter={() => {
               setHoverCard(project.id);
             }}
