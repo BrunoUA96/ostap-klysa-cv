@@ -15,23 +15,21 @@ export const Modal = ({
 }) => {
   const MotionImage = motion(Image);
 
-  const MotionSwiper = motion(Swiper);
-
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 p-9 flex">
       <motion.div
-        className="rounded-2xl w-full shrink-0 max-h-full z-10 bg-slate-300/50 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] drop-shadow-lg backdrop-blur-md overflow-hidden overflow-y-auto p-20"
+        className="rounded-2xl w-full shrink-0 max-h-full z-10 bg-slate-300/50 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] drop-shadow-lg backdrop-blur-md overflow-hidden overflow-y-auto p-20 relative"
         layoutId={`${cardInfo?.id}-card`}>
-        <AnimatePresence>
-          {cardInfo?.images.length && (
-            <MotionSwiper
-              slidesPerView={1}
-              modules={[Navigation, A11y]}
-              navigation
-              autoHeight
-              observer
-              resizeObserver
-              observeParents>
+        {cardInfo?.images.length && (
+          <Swiper
+            slidesPerView={1}
+            modules={[Navigation, A11y]}
+            navigation
+            autoHeight
+            observer
+            resizeObserver
+            observeParents>
+            <AnimatePresence>
               {cardInfo?.images.map((image, index) => {
                 return (
                   <SwiperSlide key={index}>
@@ -47,9 +45,9 @@ export const Modal = ({
                   </SwiperSlide>
                 );
               })}
-            </MotionSwiper>
-          )}
-        </AnimatePresence>
+            </AnimatePresence>
+          </Swiper>
+        )}
 
         <motion.h2
           className="my-12 text-3xl text-center font-semibold"
