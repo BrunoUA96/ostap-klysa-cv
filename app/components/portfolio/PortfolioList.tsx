@@ -7,16 +7,12 @@ import { gql } from "graphql-request";
 
 import { Project, ProjectResponse } from "@/types/project";
 
-import Image from "next/image";
 import { PortfolioCard } from "./PortfolioCard";
 
-import { BsFullscreenExit } from "react-icons/bs";
-import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { A11y, Navigation } from "swiper/modules";
 import { Modal } from "../Modal";
 
 const QUERY = gql`
@@ -69,9 +65,10 @@ export const PortfolioList = () => {
   useLayoutEffect(() => {
     document.querySelector("body")?.classList.toggle("overflow-hidden");
   }, [cardInfo]);
+
   const [hoverCard, setHoverCard] = useState("");
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const keyDownHandler = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         event.preventDefault();
@@ -92,34 +89,32 @@ export const PortfolioList = () => {
   };
 
   return (
-    <>
-      <LayoutGroup>
-        <ol className="group/list" onMouseLeave={() => setHoverCard("")}>
-          {data.map((project) => (
-            <motion.div
-              className="relative mb-12 last:mb-0"
-              onMouseEnter={() => {
-                setHoverCard(project.id);
-              }}
-              onClick={() => onCardHandler(project)}
-              key={project.id}>
-              <PortfolioCard {...project} />
+    <LayoutGroup>
+      <ol className="group/list" onMouseLeave={() => setHoverCard("")}>
+        {data.map((project) => (
+          <motion.div
+            className="relative mb-12 last:mb-0"
+            onMouseEnter={() => {
+              setHoverCard(project.id);
+            }}
+            onClick={() => onCardHandler(project)}
+            key={project.id}>
+            <PortfolioCard {...project} />
 
-              <AnimatePresence>
-                {hoverCard === project.id && (
-                  <motion.div
-                    layoutId="bubble"
-                    className="absolute inset-0 rounded-md bg-slate-300/50 -m-4 p-4 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] drop-shadow-lg -z-10"
-                  />
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </ol>
-        <AnimatePresence>
-          {cardInfo && <Modal cardInfo={cardInfo} setCardInfo={setCardInfo} />}
-        </AnimatePresence>
-      </LayoutGroup>
-    </>
+            <AnimatePresence>
+              {hoverCard === project.id && (
+                <motion.div
+                  layoutId="bubble"
+                  className="absolute inset-0 rounded-md bg-slate-300/50 -m-4 p-4 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] drop-shadow-lg -z-10"
+                />
+              )}
+            </AnimatePresence>
+          </motion.div>
+        ))}
+      </ol>
+      <AnimatePresence>
+        {cardInfo && <Modal cardInfo={cardInfo} setCardInfo={setCardInfo} />}
+      </AnimatePresence>
+    </LayoutGroup>
   );
 };
