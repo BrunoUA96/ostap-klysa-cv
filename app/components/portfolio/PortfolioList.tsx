@@ -105,7 +105,7 @@ export const PortfolioList = () => {
               {hoverCard === project.id && (
                 <motion.div
                   layoutId="bubble"
-                  className="absolute inset-0 rounded-md bg-slate-300/50 -m-4 p-4 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] drop-shadow-lg -z-10"
+                  className="absolute inset-0 rounded-md bg-slate-300/50 -m-4 p-4 -z-10"
                 />
               )}
             </AnimatePresence>

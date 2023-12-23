@@ -18,7 +18,7 @@ export const Modal = ({
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 p-9 flex">
       <motion.div
-        className="rounded-2xl w-full shrink-0 max-h-full z-10 bg-slate-300/50 shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] drop-shadow-lg backdrop-blur-md overflow-hidden overflow-y-auto p-20 relative"
+        className="rounded-2xl w-full shrink-0 max-h-full z-10 bg-slate-300/50 backdrop-blur-md overflow-hidden overflow-y-auto p-20 relative"
         layoutId={`${cardInfo?.id}-card`}>
         {cardInfo?.images.length && (
           <Swiper
