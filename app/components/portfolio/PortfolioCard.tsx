@@ -5,7 +5,7 @@ import { Card } from "../Card";
 
 export const PortfolioCard = ({ ...project }: Project) => {
   return (
-    <Card id={project.id}>
+    <Card id={project.id} isPortfolio>
       <div className="flex-shrink-0">
         <motion.img
           src={project.previewImage.url}
