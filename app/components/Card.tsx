@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { ReactNode } from "react";
+import React from "react";
 import { BsArrowsFullscreen } from "react-icons/bs";
 
 export const Card = ({
@@ -13,8 +13,8 @@ export const Card = ({
 }) => {
   return (
     <motion.li layoutId={`${id}-card`}>
-      <div className="group lg:hover:!opacity-100 lg:hover:!scale-100 lg:group-hover/list:opacity-20 lg:group-hover/list:scale-95 transition-all">
-        <div className="flex gap-4 transition-all motion-reduce:transition-none bg-transparent cursor-pointer">
+      <div className="group">
+        <div className="flex lg:hover:!opacity-100 lg:hover:!scale-100 lg:group-hover/list:opacity-20 lg:group-hover/list:scale-95 gap-4 transition-all motion-reduce:transition-none bg-transparent cursor-pointer">
           {/* Choldren */}
           {children}
 
