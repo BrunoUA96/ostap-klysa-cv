@@ -33,9 +33,7 @@ const QUERY = gql`
 `;
 
 export async function getProjects() {
-  const hygraph = new GraphQLClient(
-    "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clpy9x1jckoj501t0boi1b44e/master"
-  );
+  const hygraph = new GraphQLClient(process.env.HYGRAPH_API as string);
 
   const { projects, experiences } = await hygraph.request<
     ProjectDTO & ExperienceDTO
