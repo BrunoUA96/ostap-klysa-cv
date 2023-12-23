@@ -1,10 +1,18 @@
-import { Project } from "@/types/project";
-import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
+import Image from "next/image";
+
+import { BsFullscreenExit } from "react-icons/bs";
+
+import { AnimatePresence, motion } from "framer-motion";
+
 import { A11y, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Image from "next/image";
-import { BsFullscreenExit } from "react-icons/bs";
+
+import { Project } from "@/lib/api/dto";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
 
 export const Modal = ({
   setCardInfo,
