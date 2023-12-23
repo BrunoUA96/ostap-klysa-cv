@@ -1,9 +1,9 @@
-import { Project } from "@/types/project";
 import { motion } from "framer-motion";
 
 import { Card } from "../Card";
+import { Project } from "@/lib/api/dto";
 
-export const PortfolioCard = ({ ...project }: Project) => {
+export function PortfolioCard({ ...project }: Project) {
   return (
     <Card id={project.id} isPortfolio>
       <div className="flex-shrink-0">
@@ -29,4 +29,4 @@ export const PortfolioCard = ({ ...project }: Project) => {
       </div>
     </Card>
   );
-};
+}
