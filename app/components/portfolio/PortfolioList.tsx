@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+
 import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 
@@ -89,7 +90,7 @@ export const PortfolioList = () => {
   };
 
   return (
-    <LayoutGroup>
+    <>
       <ol className="group/list" onMouseLeave={() => setHoverCard("")}>
         {data.map((project) => (
           <motion.div
@@ -118,6 +119,6 @@ export const PortfolioList = () => {
       <AnimatePresence>
         {cardInfo && <Modal cardInfo={cardInfo} setCardInfo={setCardInfo} />}
       </AnimatePresence>
-    </LayoutGroup>
+    </>
   );
 };
