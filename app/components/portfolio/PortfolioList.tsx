@@ -1,62 +1,13 @@
 "use client";
-
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { GraphQLClient } from "graphql-request";
-import { gql } from "graphql-request";
-
-import { Project, ProjectResponse } from "@/types/project";
-
 import { PortfolioCard } from "./PortfolioCard";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-
 import { Modal } from "../Modal";
 
-const QUERY = gql`
-  {
-    projects {
-      id
-      title
-      url
-      previewImage {
-        url
-      }
-      images {
-        url
-      }
-      content {
-        text
-      }
-    }
-  }
-`;
+import { Project } from "@/lib/api/dto";
 
-async function getProjects() {
-  const hygraph = new GraphQLClient(
-    "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clpy9x1jckoj501t0boi1b44e/master"
-  );
-
-  const { projects } = await hygraph.request<ProjectResponse>(QUERY);
-
-  return [...projects];
-}
-
-export const PortfolioList = () => {
-  const [data, setData] = useState<Project[]>([]);
-
-  useEffect(() => {
-    const get = async () => {
-      const res = await getProjects();
-      setData(res);
-    };
-
-    get();
-  }, []);
-
+export function PortfolioList({ projectList }: { projectList: Project[] }) {
   const [cardInfo, setCardInfo] = useState<Project | null>(null);
 
   const openModal = (cardInfo: Project) => {
@@ -92,7 +43,7 @@ export const PortfolioList = () => {
   return (
     <>
       <ol className="group/list" onMouseLeave={() => setHoverCard("")}>
-        {data.map((project) => (
+        {projectList.map((project) => (
           <motion.div
             className="relative mb-12"
             onMouseEnter={() => {
@@ -121,4 +72,4 @@ export const PortfolioList = () => {
       </AnimatePresence>
     </>
   );
-};
+}

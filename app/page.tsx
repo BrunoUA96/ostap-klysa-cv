@@ -4,21 +4,24 @@ import { About } from "@/app/components/home/About";
 
 import { PortfolioList } from "@/app/components/portfolio/PortfolioList";
 import { ExperienceList } from "@/app/components/Experience/ExperienceList";
+import { getProjects } from "@/lib/api/api";
 
-export default function Home() {
+export default async function Home() {
+  const { projects, experiences } = await getProjects();
+
   return (
-    <div className="">
+    <div>
       <MouseBg />
 
       <About />
 
       <DividerContent />
 
-      <ExperienceList />
+      <ExperienceList experienceList={experiences} />
 
       <DividerContent />
 
-      <PortfolioList />
+      <PortfolioList projectList={projects} />
     </div>
   );
 }
