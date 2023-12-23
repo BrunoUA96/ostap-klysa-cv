@@ -4,11 +4,11 @@ import { BsArrowsFullscreen } from "react-icons/bs";
 
 export const Card = ({
   id,
-  isPortfolio,
+  isPortfolio = false,
   children,
 }: {
   id: string;
-  isPortfolio: boolean;
+  isPortfolio?: boolean;
   children: React.ReactNode;
 }) => {
   return (
