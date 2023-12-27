@@ -15,8 +15,12 @@ export function PortfolioList({ projectList }: { projectList: Project[] }) {
   };
 
   useLayoutEffect(() => {
+    const body = document.querySelector("body");
+
     if (cardInfo) {
-      document.querySelector("body")?.classList.toggle("overflow-hidden");
+      body?.classList.add("overflow-hidden");
+    } else {
+      body?.classList.remove("overflow-hidden");
     }
   }, [cardInfo]);
 
