@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 
-import { Experience } from "@/types/experience";
 import { Card } from "../Card";
+
+import { Experience } from "@/lib/api/dto";
 
 export const ExperienceCard = (props: Experience) => {
   const [startedYear, startedMonth] = props.startedDate.split("-");
