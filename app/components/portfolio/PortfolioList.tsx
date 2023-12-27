@@ -15,7 +15,9 @@ export function PortfolioList({ projectList }: { projectList: Project[] }) {
   };
 
   useLayoutEffect(() => {
-    document.querySelector("body")?.classList.toggle("overflow-hidden");
+    if (cardInfo) {
+      document.querySelector("body")?.classList.toggle("overflow-hidden");
+    }
   }, [cardInfo]);
 
   const [hoverCard, setHoverCard] = useState("");
