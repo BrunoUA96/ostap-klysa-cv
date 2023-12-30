@@ -4,6 +4,7 @@ import React from "react";
 import { Card } from "../Card";
 
 import { Experience } from "@/lib/api/dto";
+import { ResponsabilityList } from "../ResponsabilityList";
 
 export const ExperienceCard = (props: Experience) => {
   const [startedYear, startedMonth] = props.startedDate.split("-");
@@ -20,20 +21,17 @@ export const ExperienceCard = (props: Experience) => {
         </div>
         <div className="col-span-3">
           {/* Company */}
-          <h5 className="text-sm font-semibold mb-1">{props.company}</h5>
+          <h5 className="text-sm 2xl:text-md font-bold tracking-wide mb-1">
+            {props.company}
+          </h5>
           {/* Position */}
-          <span className="inline-block text-sm mb-3">{props.position}</span>
+          <span className="inline-block text-sm font-semibold mb-3">
+            {props.position}
+          </span>
           {/* Description */}
           <p className="mb-3 text-sm">{props.description}</p>
-          <div className="flex gap-3 flex-wrap">
-            {props.responsability.map((res, index) => (
-              <span
-                key={index}
-                className="bg-sky-200/75 px-3 py-1 rounded-full text-xs">
-                {res.replace("_", " ")}
-              </span>
-            ))}
-          </div>
+
+          <ResponsabilityList responsabilityList={props.responsability} />
         </div>
       </div>
     </Card>
