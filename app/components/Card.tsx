@@ -12,7 +12,9 @@ export const Card = ({
   children: React.ReactNode;
 }) => {
   return (
-    <motion.li className="pt-12 sm:pt-0" layoutId={`${id}-card`}>
+    <motion.li
+      className={isPortfolio ? "pt-12 sm:pt-0" : ""}
+      layoutId={`${id}-card`}>
       <div className="group">
         <div className="flex flex-col sm:flex-row lg:hover:!opacity-100 lg:hover:!scale-100 lg:group-hover/list:opacity-20 lg:group-hover/list:scale-95 gap-4 transition-all motion-reduce:transition-none bg-transparent cursor-pointer">
           {/* Choldren */}
