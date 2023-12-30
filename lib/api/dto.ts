@@ -29,6 +29,7 @@ export interface Project {
   };
   previewImage: { url: string };
   images: Image[];
+  responsability: string[];
 }
 
 interface Image {
