@@ -26,21 +26,6 @@ export function PortfolioList({ projectList }: { projectList: Project[] }) {
 
   const [hoverCard, setHoverCard] = useState("");
 
-  useLayoutEffect(() => {
-    const keyDownHandler = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        event.preventDefault();
-        setCardInfo(null);
-      }
-    };
-
-    document.addEventListener("keydown", keyDownHandler);
-
-    return () => {
-      document.removeEventListener("keydown", keyDownHandler);
-    };
-  }, []);
-
   const onCardHandler = (project: Project) => {
     openModal(project);
     setHoverCard("");
@@ -66,7 +51,7 @@ export function PortfolioList({ projectList }: { projectList: Project[] }) {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   layoutId="bubble"
-                  className="absolute inset-0 rounded-md bg-slate-300/40 -m-4 p-4 -z-10"
+                  className="absolute inset-0 rounded-md bg-slate-400/30 backdrop-blur-sm -m-4 p-4 -z-10"
                 />
               )}
             </AnimatePresence>

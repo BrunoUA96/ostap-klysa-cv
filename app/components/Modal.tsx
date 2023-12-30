@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+
 import { BsFullscreenExit } from "react-icons/bs";
 import { LuExternalLink } from "react-icons/lu";
 
@@ -22,10 +24,44 @@ export const Modal = ({
   setCardInfo: (info: Project | null) => void;
   cardInfo: Project | null;
 }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const keyDownHandler = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setCardInfo(null);
+      }
+    };
+
+    document.addEventListener("keydown", keyDownHandler);
+
+    // Mount function (subscribe)
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        event &&
+        !event.composedPath().includes(modalRef.current)
+      ) {
+        setCardInfo(null);
+      }
+    };
+
+    document.body.addEventListener("click", handleClickOutside);
+
+    // To unmount function (unsubscribe)
+    // When i leave from this page, need to unsubscribe from memory
+    return () => {
+      document.body.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("keydown", keyDownHandler);
+    };
+  }, [setCardInfo]);
+
   return (
-    <div className="fixed top-0 left-0 right-0 bottom-0 p-3 md:p-9 flex justify-center">
+    <div className="modal fixed top-0 left-0 right-0 bottom-0 p-3 md:p-9 flex justify-center">
       <motion.div
-        className="rounded-2xl w-full max-w-7xl shrink-0 max-h-full z-10 bg-slate-300/80 backdrop-blur-sm overflow-hidden overflow-y-auto p-4 pt-12 md:p-20 relative"
+        ref={modalRef}
+        className="rounded-2xl w-full max-w-7xl shrink-0 max-h-full z-10 bg-slate-300/90 backdrop-blur-sm overflow-hidden overflow-y-auto p-4 pt-12 md:p-20 relative"
         layoutId={`${cardInfo?.id}-card`}>
         {cardInfo?.images.length && (
           <Swiper
