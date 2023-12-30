@@ -13,24 +13,17 @@ export const Card = ({
 }) => {
   return (
     <motion.li
-      className={isPortfolio ? "pt-12 sm:pt-0" : ""}
+      className={isPortfolio ? "pt-12 sm:pt-0 cursor-pointer" : ""}
       layoutId={`${id}-card`}>
       <div className="group">
-        <div className="flex flex-col sm:flex-row lg:hover:!opacity-100 lg:hover:!scale-100 lg:group-hover/list:opacity-20 lg:group-hover/list:scale-95 gap-4 transition-all motion-reduce:transition-none bg-transparent cursor-pointer">
+        <div className="flex flex-col sm:flex-row lg:hover:!opacity-100 lg:hover:!scale-100 lg:group-hover/list:opacity-20 lg:group-hover/list:scale-95 gap-4 transition-all motion-reduce:transition-none bg-transparent">
           {/* Choldren */}
           {children}
 
           {isPortfolio && (
             <motion.div
-              whileHover={{
-                scale: 1.2,
-              }}
-              whileTap={{ scale: 1.2 }}
-              animate={{
-                scale: 0.9,
-              }}
               layoutId={`${id}-toggle`}
-              className="absolute -top-0.5 right-0 bg-white text-xl sm:text-xs p-2 rounded-lg cursor-pointer">
+              className="absolute sm:-top-1 right-0 bg-white text-xl sm:text-xs lg:group-hover:text-xl lg:group-hover:-top-2 lg:group-hover:-right-2 p-2 rounded-lg cursor-pointer transition-all">
               <BsArrowsFullscreen />
             </motion.div>
           )}
