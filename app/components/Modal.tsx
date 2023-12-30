@@ -1,12 +1,13 @@
-import React from "react";
-import Image from "next/image";
-
 import { BsFullscreenExit } from "react-icons/bs";
+import { LuExternalLink } from "react-icons/lu";
 
 import { AnimatePresence, motion } from "framer-motion";
 
 import { A11y, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import { SwiperImage } from "./SwiperImage";
+import { ResponsabilityList } from "./ResponsabilityList";
 
 import { Project } from "@/lib/api/dto";
 
@@ -21,12 +22,10 @@ export const Modal = ({
   setCardInfo: (info: Project | null) => void;
   cardInfo: Project | null;
 }) => {
-  const MotionImage = motion(Image);
-
   return (
-    <div className="fixed top-0 left-0 right-0 bottom-0 p-9 flex">
+    <div className="fixed top-0 left-0 right-0 bottom-0 p-3 md:p-9 flex justify-center">
       <motion.div
-        className="rounded-2xl w-full shrink-0 max-h-full z-10 bg-slate-300/50 backdrop-blur-md overflow-hidden overflow-y-auto p-20 relative"
+        className="rounded-2xl w-full max-w-7xl shrink-0 max-h-full z-10 bg-slate-300/80 backdrop-blur-sm overflow-hidden overflow-y-auto p-4 pt-12 md:p-20 relative"
         layoutId={`${cardInfo?.id}-card`}>
         {cardInfo?.images.length && (
           <Swiper
@@ -36,36 +35,20 @@ export const Modal = ({
             autoHeight
             observer
             resizeObserver
-            observeParents>
+            observeParents
+            className="xl:!h-[80%]">
             <AnimatePresence>
               {cardInfo?.images.map((image, index) => {
                 return (
-                  <SwiperSlide key={index}>
-                    <div className="flex justify-center">
-                      {image ? (
-                        <MotionImage
-                          src={image.url}
-                          layoutId={`${
-                            index === 0 ? cardInfo?.id : index
-                          }-image`}
-                          alt={cardInfo?.title || ""}
-                          width={600}
-                          height={400}
-                        />
-                      ) : (
-                        <MotionImage
-                          src={"./loader.svg"}
-                          layoutId={`${
-                            index === 0 ? cardInfo?.id : index
-                          }-image`}
-                          alt={cardInfo?.title || ""}
-                          width={600}
-                          height={400}
-                        />
-                      )}
-                    </div>
+                  <SwiperSlide className="xl:!h-full" key={index}>
+                    {/* <div className="h-full"> */}
+                    <SwiperImage
+                      imageUrl={image.url}
+                      imgAlt={cardInfo?.title || ""}
+                      cardId={`${index === 0 ? cardInfo?.id : index}-image`}
+                    />
+                    {/* </div> */}
                   </SwiperSlide>
-                  //  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><circle cx="12" cy="12" r="0" fill="currentColor"><animate id="svgSpinnersPulse20" fill="freeze" attributeName="r" begin="0;svgSpinnersPulse21.begin+0.6s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="0;11"></animate><animate fill="freeze" attributeName="opacity" begin="0;svgSpinnersPulse21.begin+0.6s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="1;0"></animate></circle><circle cx="12" cy="12" r="0" fill="currentColor"><animate id="svgSpinnersPulse21" fill="freeze" attributeName="r" begin="svgSpinnersPulse20.begin+0.6s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="0;11"></animate><animate fill="freeze" attributeName="opacity" begin="svgSpinnersPulse20.begin+0.6s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="1;0"></animate></circle></svg>
                 );
               })}
             </AnimatePresence>
@@ -80,6 +63,18 @@ export const Modal = ({
         <motion.p layoutId={`${cardInfo?.id}-content`}>
           {cardInfo?.content.text}
         </motion.p>
+        <div className="mt-6 flex flex-col md:flex-row justify-between gap-6">
+          <ResponsabilityList responsabilityList={cardInfo?.responsability} />
+
+          <div className="shrink-0">
+            <a
+              className="flex gap-3 items-center bg-white rounded-lg px-3 py-2 text-sm underline"
+              href={cardInfo?.url}
+              target="blank">
+              {cardInfo?.title} <LuExternalLink />
+            </a>
+          </div>
+        </div>
 
         <motion.div
           layoutId={`${cardInfo?.id}-toggle`}
