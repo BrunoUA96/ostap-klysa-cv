@@ -18,9 +18,9 @@ export const ExperienceList = ({
         <motion.div
           initial={{
             opacity: 0,
-            ...(i % 2 ? { right: -100 } : { left: -100 }),
+            x: i % 2 ? -100 : 100,
           }}
-          animate={{ opacity: 1, ...(i % 2 ? { right: 0 } : { left: 0 }) }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ delay: i * 0.2 }}
           key={exp.id}
           className="mb-12 last:mb-0 relative"

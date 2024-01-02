@@ -1,7 +1,12 @@
+"use client";
+import { motion } from "framer-motion";
 import React from "react";
 
 export const About = () => (
-  <h3 className="text-base mb-8 font-light">
+  <motion.h3
+    initial={{ filter: "blur(40px)", x: 40 }}
+    animate={{ filter: "blur(0px)", x: 0 }}
+    className="text-base mb-8 font-light">
     Passionate developer offering 5+ years of experience,
     <span className="bg-white text-black px-2">strong</span> sense of web design
     and commitment to the user experience, including the accessibility.{" "}
@@ -12,5 +17,5 @@ export const About = () => (
     <span className="bg-white text-black px-2">Comfortable</span> with working
     with code written by others, and development from scratch. Excellent
     communication skills and great collaborator.
-  </h3>
+  </motion.h3>
 );

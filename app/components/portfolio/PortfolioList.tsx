@@ -38,11 +38,11 @@ export function PortfolioList({ projectList }: { projectList: Project[] }) {
           <motion.div
             initial={{
               opacity: 0,
-              ...(i % 2 ? { right: -100 } : { left: -100 }),
+              x: i % 2 ? -100 : 100,
             }}
             whileInView={{
               opacity: 1,
-              ...(i % 2 ? { right: 0 } : { left: 0 }),
+              x: 0,
             }}
             transition={{ delay: i * 0.2 }}
             className="relative mb-12"
