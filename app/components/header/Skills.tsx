@@ -11,8 +11,6 @@ import { motion } from "framer-motion";
 export const Skills = () => {
   const randomTransitionNumber = () => Math.ceil(Math.random());
 
-  console.log(randomTransitionNumber());
-
   return (
     <div className="text-5xl flex flex-wrap gap-14 my-auto">
       <motion.div
