@@ -34,8 +34,17 @@ export function PortfolioList({ projectList }: { projectList: Project[] }) {
   return (
     <>
       <ol className="group/list" onMouseLeave={() => setHoverCard("")}>
-        {projectList.map((project) => (
+        {projectList.map((project, i) => (
           <motion.div
+            initial={{
+              opacity: 0,
+              ...(i % 2 ? { right: -100 } : { left: -100 }),
+            }}
+            whileInView={{
+              opacity: 1,
+              ...(i % 2 ? { right: 0 } : { left: 0 }),
+            }}
+            transition={{ delay: i * 0.2 }}
             className="relative mb-12"
             onMouseEnter={() => {
               setHoverCard(project.id);

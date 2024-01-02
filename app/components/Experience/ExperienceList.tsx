@@ -14,8 +14,14 @@ export const ExperienceList = ({
 
   return (
     <ol className="group/list" onMouseLeave={() => setHoverCard("")}>
-      {experienceList.map((exp) => (
-        <div
+      {experienceList.map((exp, i) => (
+        <motion.div
+          initial={{
+            opacity: 0,
+            ...(i % 2 ? { right: -100 } : { left: -100 }),
+          }}
+          animate={{ opacity: 1, ...(i % 2 ? { right: 0 } : { left: 0 }) }}
+          transition={{ delay: i * 0.2 }}
           key={exp.id}
           className="mb-12 last:mb-0 relative"
           onMouseEnter={() => {
@@ -33,7 +39,7 @@ export const ExperienceList = ({
               />
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
       ))}
     </ol>
   );
