@@ -23,7 +23,7 @@ export const Card = ({
           {isPortfolio && (
             <motion.div
               layoutId={`${id}-toggle`}
-              className="absolute sm:-top-1 right-0 bg-white text-xl sm:text-xs lg:group-hover:text-xl lg:group-hover:-top-2 lg:group-hover:-right-2 p-2 rounded-lg cursor-pointer transition-all">
+              className="absolute sm:-top-1 right-0 bg-white text-xl sm:text-xs lg:group-hover:text-xl dark:text-black lg:group-hover:-top-2 lg:group-hover:-right-2 p-2 rounded-lg cursor-pointer transition-all">
               <BsArrowsFullscreen />
             </motion.div>
           )}

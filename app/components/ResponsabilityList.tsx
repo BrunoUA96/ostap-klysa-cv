@@ -8,7 +8,7 @@ export const ResponsabilityList = ({
       {responsabilityList?.map((res, index) => (
         <span
           key={index}
-          className="bg-sky-300/75 px-3 py-1 rounded-full text-xs flex items-center justify-center">
+          className="bg-sky-300/75 dark:bg-sky-400/50 px-3 py-1 rounded-full text-xs flex items-center justify-center">
           {res.replace("_", " ")}
         </span>
       ))}

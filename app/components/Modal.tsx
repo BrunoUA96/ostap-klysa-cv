@@ -61,7 +61,7 @@ export const Modal = ({
     <div className="modal fixed top-0 left-0 right-0 bottom-0 p-3 md:p-9 flex justify-center">
       <motion.div
         ref={modalRef}
-        className="rounded-2xl w-full max-w-7xl shrink-0 max-h-full z-10 bg-slate-300/90 backdrop-blur-sm overflow-hidden overflow-y-auto p-4 pt-12 md:p-20 relative"
+        className="rounded-2xl w-full max-w-7xl shrink-0 max-h-full z-10 bg-slate-300/90 dark:bg-slate-800/90 backdrop-blur-sm overflow-hidden overflow-y-auto p-4 pt-12 md:p-20 relative"
         layoutId={`${cardInfo?.id}-card`}>
         {cardInfo?.images.length && (
           <Swiper
@@ -104,7 +104,7 @@ export const Modal = ({
 
           <div className="shrink-0">
             <a
-              className="flex gap-3 items-center bg-white rounded-lg px-3 py-2 text-sm underline"
+              className="flex gap-3 items-center bg-white dark:text-black rounded-lg px-3 py-2 text-sm underline"
               href={cardInfo?.url}
               target="blank">
               {cardInfo?.title} <LuExternalLink />
@@ -123,7 +123,7 @@ export const Modal = ({
             top: "0.5rem",
             right: "0.5rem",
           }}
-          className="absolute flex items-center gap-3 bg-white text-xs p-2 rounded-lg cursor-pointer"
+          className="absolute flex items-center gap-3 bg-white dark:text-black text-xs p-2 rounded-lg cursor-pointer"
           onClick={() => setCardInfo(null)}>
           <span className="text-sm">Esc</span> / <BsFullscreenExit />
         </motion.div>

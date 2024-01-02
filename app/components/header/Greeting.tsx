@@ -13,7 +13,7 @@ export const Greeting = () => (
     <h2 className="text-6xl font-bold">
       Hi, <br /> I`m Ostap
     </h2>
-    <h4 className="text-lg text-sky-800 font-medium my-6">
+    <h4 className="text-lg text-sky-800 dark:text-cyan-400 font-medium my-6">
       Front-End Developer
     </h4>
 

@@ -21,14 +21,14 @@ export const ExperienceCard = (props: Experience) => {
             <h5 className="text-sm 2xl:text-md font-bold tracking-wide">
               {props.company}
             </h5>
-            <div className="flex gap-3 col-span-2 text-slate-800 text-xs lg:group-hover:bg-white/50 px-3 py-1 rounded-lg transition-all">
+            <div className="flex gap-3 col-span-2 text-slate-800  text-xs lg:group-hover:bg-white/50 dark:lg:group-hover:bg-white dark:text-white/80 dark:lg:group-hover:text-black px-3 py-1 rounded-lg transition-all">
               <span>{`${startedYear}/${startedMonth}`}</span>
               <span>&mdash;</span>
               <span>{`${finishYear}/${finishMonth}`}</span>
             </div>
           </div>
           {/* Position */}
-          <span className="inline-block text-xs text-sky-800 font-medium mb-3">
+          <span className="inline-block text-xs text-sky-800 dark:text-cyan-400 font-medium mb-3">
             {props.position}
           </span>
           {/* Description */}
