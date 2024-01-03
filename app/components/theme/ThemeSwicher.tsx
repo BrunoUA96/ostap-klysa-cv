@@ -57,7 +57,7 @@ export const ThemeSwicher = () => {
   );
 };
 
-export const OptionList = ({
+const OptionList = ({
   value,
   children,
 }: {
