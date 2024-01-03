@@ -12,7 +12,7 @@ export function PortfolioCard({ ...project }: Project) {
           alt="Company"
           width={200}
           height={100}
-          className="w-auto max-w-md sm:max-w-[200px] mx-auto"
+          className="w-full max-w-full sm:max-w-[200px] mx-auto"
           layoutId={`${project.id}-image`}
         />
       </div>
