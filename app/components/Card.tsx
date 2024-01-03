@@ -13,7 +13,7 @@ export const Card = ({
 }) => {
   return (
     <motion.li
-      className={isPortfolio ? "pt-12 sm:pt-0 cursor-pointer" : ""}
+      className={isPortfolio ? "pt-12 sm:pt-0 cursor-pointer" : "select-none"}
       layoutId={`${id}-card`}>
       <div className="group">
         <div className="flex flex-col sm:flex-row lg:hover:!opacity-100 lg:hover:!scale-100 lg:group-hover/list:opacity-20 lg:group-hover/list:scale-95 gap-4 transition-all motion-reduce:transition-none bg-transparent">

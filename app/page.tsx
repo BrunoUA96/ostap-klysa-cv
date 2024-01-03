@@ -5,6 +5,7 @@ import { About } from "@/app/components/home/About";
 import { PortfolioList } from "@/app/components/portfolio/PortfolioList";
 import { ExperienceList } from "@/app/components/Experience/ExperienceList";
 import { getProjects } from "@/lib/api/api";
+import { AnimationWrapper } from "./components/AnimationWrapper";
 
 export default async function Home() {
   const { projects, experiences } = await getProjects();
@@ -13,13 +14,12 @@ export default async function Home() {
     <div>
       <MouseBg />
 
-      <About />
-
-      <DividerContent />
-
-      <ExperienceList experienceList={experiences} />
-
-      <DividerContent />
+      <AnimationWrapper>
+        <About />
+        <DividerContent />
+        <ExperienceList experienceList={experiences} />
+        <DividerContent />
+      </AnimationWrapper>
 
       <PortfolioList projectList={projects} />
     </div>
