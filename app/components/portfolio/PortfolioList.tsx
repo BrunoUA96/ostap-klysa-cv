@@ -18,9 +18,9 @@ export function PortfolioList({ projectList }: { projectList: Project[] }) {
     const body = document.querySelector("body");
 
     if (cardInfo) {
-      body?.classList.add("overflow-hidden");
+      body?.classList.add("overflowHidden");
     } else {
-      body?.classList.remove("overflow-hidden");
+      body?.classList.remove("overflowHidden");
     }
   }, [cardInfo]);
 
@@ -34,17 +34,16 @@ export function PortfolioList({ projectList }: { projectList: Project[] }) {
   return (
     <>
       <ol className="group/list" onMouseLeave={() => setHoverCard("")}>
-        {projectList.map((project, i) => (
+        {projectList.map((project) => (
           <motion.div
             initial={{
               opacity: 0,
-              y: -100,
             }}
             whileInView={{
               opacity: 1,
-              y: 0,
             }}
-            transition={{ delay: i * 0.2 }}
+            transition={{ delay: 0.5 }}
+            viewport={{ once: true }}
             className="relative mb-12"
             onMouseEnter={() => {
               setHoverCard(project.id);
