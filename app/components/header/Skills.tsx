@@ -1,4 +1,8 @@
 "use client";
+
+import { ReactNode } from "react";
+import { motion } from "framer-motion";
+
 import { FaAngular, FaReact, FaSass } from "react-icons/fa";
 import { SiMysql, SiOctobercms, SiRedux } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io";
@@ -6,91 +10,75 @@ import { BsBootstrapFill } from "react-icons/bs";
 import { DiPhp } from "react-icons/di";
 import { BiLogoTypescript } from "react-icons/bi";
 import { FaSquareGit } from "react-icons/fa6";
-import { motion } from "framer-motion";
 
 export const Skills = () => {
-  const randomTransitionNumber = () => Math.ceil(Math.random());
+  const randomTransitionNumber = () => Math.ceil(Math.random() * 50);
 
   return (
-    <div className="text-5xl flex flex-wrap gap-14 my-auto">
-      <motion.div
-        className="text-yellow-400"
-        initial={{ opacity: 0, y: -200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: randomTransitionNumber() * 1 * 0.02 }}>
+    <div className="text-2xl md:text-3xl xl:text-5xl flex flex-wrap gap-9 my-auto">
+      <SkillItem order={randomTransitionNumber()} color="text-yellow-400">
         <IoLogoJavascript />
-      </motion.div>
-      <motion.div
-        className="text-sky-600"
-        initial={{ opacity: 0, y: -200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: randomTransitionNumber() * 2 * 0.02 }}>
-        <BiLogoTypescript />
-      </motion.div>
-      <motion.div
-        className="text-sky-400"
-        initial={{ opacity: 0, y: -200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: randomTransitionNumber() * 3 * 0.02 }}>
-        <FaReact />
-      </motion.div>
-      <motion.div
-        className="text-purple-600"
-        initial={{ opacity: 0, y: -200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: randomTransitionNumber() * 4 * 0.02 }}>
-        <SiRedux />
-      </motion.div>
-      <motion.div
-        className="text-red-600"
-        initial={{ opacity: 0, y: -200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: randomTransitionNumber() * 5 * 0.02 }}>
-        <FaAngular />
-      </motion.div>
+      </SkillItem>
 
-      <motion.div
-        className="text-rose-400"
-        initial={{ opacity: 0, y: -200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: randomTransitionNumber() * 6 * 0.02 }}>
+      <SkillItem order={randomTransitionNumber()} color="text-sky-600">
+        <BiLogoTypescript />
+      </SkillItem>
+
+      <SkillItem order={randomTransitionNumber()} color="text-sky-400">
+        <FaReact />
+      </SkillItem>
+
+      <SkillItem order={randomTransitionNumber()} color="text-purple-600">
+        <SiRedux />
+      </SkillItem>
+
+      <SkillItem order={randomTransitionNumber()} color="text-red-600">
+        <FaAngular />
+      </SkillItem>
+
+      <SkillItem order={randomTransitionNumber()} color="text-rose-400">
         <FaSass />
-      </motion.div>
-      <motion.div
-        className="text-violet-700"
-        initial={{ opacity: 0, y: -200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: randomTransitionNumber() * 7 * 0.02 }}>
+      </SkillItem>
+
+      <SkillItem order={randomTransitionNumber()} color="text-violet-700">
         <BsBootstrapFill />
-      </motion.div>
-      <motion.div
-        className="text-amber-600"
-        initial={{ opacity: 0, y: -200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: randomTransitionNumber() * 8 * 0.02 }}>
+      </SkillItem>
+
+      <SkillItem order={randomTransitionNumber()} color="text-amber-600">
         <SiOctobercms />
-      </motion.div>
-      <motion.div
-        className="text-blue-900"
-        initial={{ opacity: 0, y: -200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: randomTransitionNumber() * 9 * 0.02 }}>
+      </SkillItem>
+
+      <SkillItem order={randomTransitionNumber()} color="text-blue-900">
         <DiPhp />
-      </motion.div>
-      <motion.div
-        className="text-blue-600"
-        initial={{ opacity: 0, y: -200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: randomTransitionNumber() * 10 * 0.02 }}>
+      </SkillItem>
+
+      <SkillItem order={randomTransitionNumber()} color="text-blue-600">
         <SiMysql />
-      </motion.div>
-      <motion.div
-        className="text-red-500"
-        initial={{ opacity: 0, y: -200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: randomTransitionNumber() * 11 * 0.02 }}>
+      </SkillItem>
+
+      <SkillItem order={randomTransitionNumber()} color="text-red-500">
         <FaSquareGit />
-      </motion.div>
+      </SkillItem>
     </div>
+  );
+};
+
+const SkillItem = ({
+  order,
+  color,
+  children,
+}: {
+  order: number;
+  color: string;
+  children: ReactNode;
+}) => {
+  return (
+    <motion.div
+      className={color}
+      initial={{ opacity: 0, y: -200 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: order * 1 * 0.02 }}>
+      {children}
+    </motion.div>
   );
 };
