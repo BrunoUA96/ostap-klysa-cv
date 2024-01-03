@@ -15,7 +15,7 @@ export const Skills = () => {
   const randomTransitionNumber = () => Math.ceil(Math.random() * 50);
 
   return (
-    <div className="text-2xl md:text-3xl xl:text-5xl flex flex-wrap gap-9 my-auto">
+    <div className="text-2xl md:text-3xl xl:text-4xl flex flex-wrap gap-9 mb-5 mt-9 lg:mt-auto">
       <SkillItem order={randomTransitionNumber()} color="text-yellow-400">
         <IoLogoJavascript />
       </SkillItem>

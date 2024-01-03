@@ -10,8 +10,8 @@ export const Header = () => {
     <header className="max-h-screen flex flex-col pt-16 lg:sticky lg:top-0">
       <AnimationWrapper>
         <Greeting />
-        <Skills />
         <Socials />
+        <Skills />
       </AnimationWrapper>
     </header>
   );
