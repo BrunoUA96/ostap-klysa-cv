@@ -28,6 +28,7 @@ const QUERY = gql`
       content {
         text
       }
+      responsability
     }
   }
 `;

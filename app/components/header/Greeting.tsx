@@ -1,13 +1,17 @@
-import React from "react";
+export const Greeting = () => {
+  return (
+    <div>
+      <h2 className="text-6xl font-bold">
+        Hi, <br /> I`m Ostap
+      </h2>
+      <h4 className="text-lg text-sky-800 dark:text-cyan-400 font-medium my-6 transition-colors duration-300">
+        Front-End Developer
+      </h4>
 
-export const Greeting = () => (
-  <div>
-    <h2 className="text-5xl font-bold text-slate-800">
-      Hi, <br /> I`m Ostap
-    </h2>
-    <h4 className="text-lg mt-2">Front-End Developer from Porto :)</h4>
-    <span className="text-lg mt-9 inline-block">
-      Welcome to my personal site You can check my Portfolio with the link below
-    </span>
-  </div>
-);
+      <h6 className="mb-5 font-light text-base">
+        Creative frontend developer crafting visually stunning and intuitive web
+        experiences.
+      </h6>
+    </div>
+  );
+};
