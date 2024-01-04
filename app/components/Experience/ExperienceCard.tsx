@@ -2,10 +2,9 @@
 import React from "react";
 
 import { Card } from "../Card";
+import { ResponsabilityList } from "../ResponsabilityList";
 
 import { Experience } from "@/lib/api/dto";
-import { ResponsabilityList } from "../ResponsabilityList";
-import { motion } from "framer-motion";
 
 export const ExperienceCard = (props: Experience) => {
   const [startedYear, startedMonth] = props.startedDate.split("-");
