@@ -2,7 +2,7 @@ import { MouseBg } from "@/app/components/MouseBg";
 import { About } from "@/app/components/About";
 
 import { PortfolioList } from "@/app/components/portfolio/PortfolioList";
-import { ExperienceList } from "@/app/components/ExperienceOld/ExperienceList";
+import { ExperienceList } from "@/app/components/experience/ExperienceList";
 import { getProjects } from "@/lib/api/api";
 import { AnimationWrapper } from "./components/AnimationWrapper";
 
