@@ -24,7 +24,7 @@ const QUERY = gql`
       previewImage {
         url
       }
-      images {
+      images(first: 500) {
         url
       }
       content {
