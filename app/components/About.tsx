@@ -1,6 +1,6 @@
 export const About = () => {
   return (
-    <h3 className="text-base mb-8 font-light">
+    <h3 className="text-base font-light">
       Passionate developer offering 5+ years of experience,
       <span className="bg-white dark:bg-slate-700 dark:text-white text-black px-2">
         strong

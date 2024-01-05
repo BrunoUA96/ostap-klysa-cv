@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+
 import { ExperienceCard } from "./ExperienceCard";
+
 import { Experience } from "@/lib/api/dto";
 
 export const ExperienceList = ({

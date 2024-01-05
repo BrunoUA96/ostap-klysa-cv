@@ -7,7 +7,9 @@ export interface Experience {
   id: string;
   link?: string;
   position: string;
-  description?: string;
+  description: {
+    html: Document;
+  };
   company: string;
   startedDate: string;
   finishedDate: string;
@@ -25,7 +27,7 @@ export interface Project {
   title: string;
   url: string;
   content: {
-    text: string;
+    html: Document;
   };
   previewImage: { url: string };
   images: Image[];

@@ -12,7 +12,8 @@ const fira_code = Fira_Code({
 
 export const metadata: Metadata = {
   title: "Ostap Klysa CV",
-  description: "Hi, I`m Ostap. Front-End Developer from Porto :)",
+  description:
+    "Front-End Developer. Here you will find a description of my experience and a couple of presented projects",
 };
 
 export default function RootLayout({
@@ -22,6 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body
         className={`${fira_code.className} bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-200 transition-colors duration-300`}>
         <Theme>

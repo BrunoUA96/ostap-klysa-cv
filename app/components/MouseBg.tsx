@@ -1,5 +1,6 @@
 "use client";
-import { useMousePosition } from "@/lib/mouse-position";
+
+import { useMousePosition } from "@/hooks/useMousePosition";
 import React from "react";
 
 export const MouseBg = () => {

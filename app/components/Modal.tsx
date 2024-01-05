@@ -24,6 +24,8 @@ export const Modal = ({
   setCardInfo: (info: Project | null) => void;
   cardInfo: Project | null;
 }) => {
+  const description = { __html: cardInfo?.content.html || "" };
+
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -96,20 +98,26 @@ export const Modal = ({
           layoutId={`${cardInfo?.id}-title`}>
           {cardInfo?.title}
         </motion.h2>
-        <motion.p layoutId={`${cardInfo?.id}-content`}>
-          {cardInfo?.content.text}
-        </motion.p>
+        {description && (
+          <motion.div
+            layoutId={`${cardInfo?.id}-content`}
+            dangerouslySetInnerHTML={description}
+          />
+        )}
+
         <div className="mt-6 flex flex-col md:flex-row justify-between gap-6">
           <ResponsabilityList responsabilityList={cardInfo?.responsability} />
 
-          <div className="shrink-0">
-            <a
-              className="flex gap-3 items-center bg-white dark:text-black rounded-lg px-3 py-2 text-sm underline"
-              href={cardInfo?.url}
-              target="blank">
-              {cardInfo?.title} <LuExternalLink />
-            </a>
-          </div>
+          {cardInfo?.url && (
+            <div className="shrink-0">
+              <a
+                className="flex gap-3 items-center bg-white dark:text-black rounded-lg px-3 py-2 text-sm underline"
+                href={cardInfo?.url}
+                target="blank">
+                {cardInfo?.title} <LuExternalLink />
+              </a>
+            </div>
+          )}
         </div>
 
         <motion.div

@@ -3,6 +3,7 @@
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
 
+// Icons
 import { FaAngular, FaReact, FaSass } from "react-icons/fa";
 import { SiMysql, SiOctobercms, SiRedux } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io";
@@ -10,6 +11,26 @@ import { BsBootstrapFill } from "react-icons/bs";
 import { DiPhp } from "react-icons/di";
 import { BiLogoTypescript } from "react-icons/bi";
 import { FaSquareGit } from "react-icons/fa6";
+
+const SkillItem = ({
+  order,
+  color,
+  children,
+}: {
+  order: number;
+  color: string;
+  children: ReactNode;
+}) => {
+  return (
+    <motion.div
+      className={color}
+      initial={{ opacity: 0, y: -200 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: order * 1 * 0.02 }}>
+      {children}
+    </motion.div>
+  );
+};
 
 export const Skills = () => {
   const randomTransitionNumber = () => Math.ceil(Math.random() * 50);
@@ -60,25 +81,5 @@ export const Skills = () => {
         <FaSquareGit />
       </SkillItem>
     </div>
-  );
-};
-
-const SkillItem = ({
-  order,
-  color,
-  children,
-}: {
-  order: number;
-  color: string;
-  children: ReactNode;
-}) => {
-  return (
-    <motion.div
-      className={color}
-      initial={{ opacity: 0, y: -200 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: order * 1 * 0.02 }}>
-      {children}
-    </motion.div>
   );
 };

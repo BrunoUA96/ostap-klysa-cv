@@ -2,14 +2,15 @@
 import React from "react";
 
 import { Card } from "../Card";
+import { ResponsabilityList } from "../ResponsabilityList";
 
 import { Experience } from "@/lib/api/dto";
-import { ResponsabilityList } from "../ResponsabilityList";
-import { motion } from "framer-motion";
 
 export const ExperienceCard = (props: Experience) => {
   const [startedYear, startedMonth] = props.startedDate.split("-");
   const [finishYear, finishMonth] = props.finishedDate.split("-");
+
+  const descrintion = { __html: props.description.html };
 
   return (
     <Card id={props.id}>
@@ -32,9 +33,10 @@ export const ExperienceCard = (props: Experience) => {
             {props.position}
           </span>
           {/* Description */}
-          <p className="mb-3 text-sm font-light text-slate-900 dark:text-slate-200 transition-colors duration-300">
-            {props.description}
-          </p>
+          <div
+            className="mb-3 text-sm font-light text-slate-900 dark:text-slate-200 transition-colors duration-300"
+            dangerouslySetInnerHTML={descrintion}
+          />
 
           <ResponsabilityList responsabilityList={props.responsability} />
         </div>

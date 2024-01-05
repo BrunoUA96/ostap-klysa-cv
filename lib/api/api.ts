@@ -5,11 +5,13 @@ import { ExperienceDTO, ProjectDTO } from "./dto";
 
 const QUERY = gql`
   {
-    experiences {
+    experiences(orderBy: startedDate_DESC) {
       id
       link
       position
-      description
+      description {
+        html
+      }
       company
       startedDate
       finishedDate
@@ -22,11 +24,11 @@ const QUERY = gql`
       previewImage {
         url
       }
-      images {
+      images(first: 500) {
         url
       }
       content {
-        text
+        html
       }
       responsability
     }
