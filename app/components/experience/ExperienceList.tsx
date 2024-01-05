@@ -37,7 +37,7 @@ export const ExperienceList = ({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 layoutId="bubblee"
-                className="absolute inset-0 rounded-md bg-slate-400/30 dark:bg-slate-700/30 backdrop-blur-sm -m-4 p-4 -z-10"
+                className="absolute inset-0 rounded-md bg-slate-400/20 dark:bg-slate-700/30 backdrop-blur-sm -m-4 p-4 -z-10"
               />
             )}
           </AnimatePresence>
