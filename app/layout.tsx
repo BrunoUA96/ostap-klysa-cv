@@ -25,6 +25,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+
+        <meta property="og:image" content="/meta-image.png" />
+        <meta name="twitter:image" content="/meta-image.png" />
       </head>
       <body
         className={`${fira_code.className} bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-200 transition-colors duration-300`}>
