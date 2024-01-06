@@ -14,8 +14,14 @@ export const metadata: Metadata = {
   title: "Ostap Klysa CV",
   description:
     "Front-End Developer. Here you will find a description of my experience and a couple of presented projects",
-  openGraph: { images: "./meta-image.png" },
-  twitter: { images: "./meta-image.png" },
+  openGraph: {
+    images:
+      "https://raw.githubusercontent.com/BrunoUA96/ostap-klysa-cv/main/app/meta-image.png",
+  },
+  twitter: {
+    images:
+      "https://raw.githubusercontent.com/BrunoUA96/ostap-klysa-cv/main/app/meta-image.png",
+  },
 };
 
 export default function RootLayout({
