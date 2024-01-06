@@ -34,7 +34,7 @@ export const ExperienceCard = (props: Experience) => {
           </span>
           {/* Description */}
           <div
-            className="mb-3 text-sm font-light text-slate-900 dark:text-slate-200 transition-colors duration-300"
+            className="mb-3 text-sm font-light text-slate-900 dark:text-slate-200 transition-colors duration-300 [&>p>a]:text-blue-500 [&>p>a]:dark:text-sky-400"
             dangerouslySetInnerHTML={descrintion}
           />
 
