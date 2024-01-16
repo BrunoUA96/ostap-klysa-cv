@@ -30,7 +30,7 @@ export const Socials = () => (
     <SocialLink href="https://www.linkedin.com/in/ostap-klysa-425237108/">
       <BsLinkedin />
     </SocialLink>
-    <SocialLink download href="/Resume-Ostap-Klysa.pdf">
+    <SocialLink download href="/Ostap-Klysa-CV.pdf">
       CV
     </SocialLink>
   </div>
